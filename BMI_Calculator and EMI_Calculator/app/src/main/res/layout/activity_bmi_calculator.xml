@@ -3,57 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".bmi_calculator">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BMI Calculator"
-        android:textSize="45sp"
         android:layout_marginHorizontal="30dp"
+        android:fontFamily="@font/amaranth"
+        android:text="BMI Calculator"
         android:textColor="#000"
-        />
+        android:textSize="45sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Weight in Kg"
         android:layout_marginHorizontal="30dp"
-        android:padding="12dp"
         android:inputType="numberDecimal"
-        />
+        android:padding="12dp"
+        android:text="Your Weight in Kg" />
+
     <EditText
-        android:id="@+id/weight"
+        android:id="@+id/etweight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:padding="12dp"
-        android:singleLine="true"
-        android:nextFocusForward="@id/height"
+        android:background="@drawable/edit_bg"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
-        android:background="@drawable/edit_bg"
-        />
+        android:nextFocusForward="@id/etheight"
+        android:padding="12dp"
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Height in cm"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="15dp"
         android:inputType="numberDecimal"
-        />
+        android:text="Your Height in cm" />
+
     <EditText
-        android:id="@+id/height"
+        android:id="@+id/etheight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
+        android:background="@drawable/edit_bg"
+        android:inputType="numberDecimal"
         android:padding="12dp"
         android:singleLine="true"
-        android:inputType="numberDecimal"
-        android:background="@drawable/edit_bg"
 
         />
 
@@ -63,29 +63,41 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="15dp"
-        android:text="Calculate"
         android:background="@drawable/btn_bg"
+        android:text="Calculate"
         android:textColor="#fafafa"
-        android:onClick="calculateBMI"
 
         />
+
     <TextView
+        android:id="@+id/tvres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:text="Your BMI"
-        android:textSize="40sp"
+        android:textAlignment="center"
         android:textColor="#000"
-        />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="50sp"
         android:textColor="#000"
-        />
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/btnreset"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="-100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg"
+        android:text="Reset"
+        android:textColor="#000" />
 
 
 </LinearLayout>

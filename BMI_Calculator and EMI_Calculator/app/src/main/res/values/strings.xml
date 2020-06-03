@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">BMI_Calculator and EMI_Calculator</string>
+    <string name="app_name">BMI Calculator and EMI Calculator</string>
+    <string name="welcomepage">
+        <br>Welcome\n</br>
+        <br>to\n</br>
+        <br>BMI Calculator\n</br>
+        <br>AND \n</br>
+        <br>EMI Calculator</br>
+
+
+    </string>
+
 </resources>

@@ -12,3 +12,5 @@ public class emi_calculator extends AppCompatActivity {
         setContentView(R.layout.activity_emi_calculator);
     }
 }
+
+

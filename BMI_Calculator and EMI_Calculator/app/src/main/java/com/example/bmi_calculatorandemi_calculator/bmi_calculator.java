@@ -10,46 +10,85 @@ import android.widget.TextView;
 
 public class bmi_calculator extends AppCompatActivity {
 
-    EditText weight, height;
-    TextView resulttext;
+    EditText etweight, etheight;
+    TextView resulttext, tvres;
     String calculation, BMIresult;
-    Button Calculate;
+   Button calculate_button, btnreset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi_calculator);
+
+
+        etweight = findViewById(R.id.etweight);
+        etheight = findViewById(R.id.etheight);
+        resulttext = findViewById(R.id.result);
+        tvres = findViewById(R.id.tvres);
+        btnreset = findViewById(R.id.btnreset);
+        calculate_button = findViewById(R.id.calculate_button);
+
+        calculate_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sweight = etweight.getText().toString();
+                String sheight =etheight.getText().toString();
+
+                if(sweight.equals("")){
+                    etweight.setError("Please enter Your weight");
+                    etweight.requestFocus();
+                    return;
+                }
+                if (sheight.equals("")){
+                    etheight.setError("Please Enter Your Height");
+                    etheight.requestFocus();
+                    return;
+                }
+
+                float weight = Float.parseFloat(sweight);
+                float height = Float.parseFloat(sheight)/100;
+
+                float valuofbmi = CalculateBMI(weight,height);
+
+                tvres.setText(interpreteBMI(valuofbmi));
+                resulttext.setText("Your BMI is " + valuofbmi);
+            }
+        });
+
+                btnreset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        etheight.setText("");
+                        etweight.setText("");
+                        tvres.setText("");
+                        resulttext.setText("");
+                    }
+                });
     }
 
-    public void calculateBMI(View view) {
-        String s1 = weight.getText().toString();
-        String s2 = height.getText().toString();
 
-        float weightValue = Float.parseFloat(s1);
-        float heightValue = Float.parseFloat(s2) / 100;
-        float s3 = heightValue;
-        float bmi = weightValue / (s3 * s3);
+    public float CalculateBMI(float weight, float height){
+        return  weight / (height * height);
+    }
 
-        if(bmi <16){
-            BMIresult = "Severely Under weight";
-        }
 
-        else if(bmi <18.5){
-            BMIresult = "Under weight";
+    public String interpreteBMI(float bmivalue){
+        if (bmivalue < 16){
+            return "Servely Underweight";
         }
-        else if (bmi >= 18.5 && bmi <=24.9){
-            BMIresult = "Normal weight";
+        else if (bmivalue < 18.5){
+            return "Under weight";
         }
-        else if (bmi >= 25 && bmi <=29.9){
-            BMIresult = " Over weight";
+        else if (bmivalue < 24.9){
+            return "Normal weight";
+        }
+        else if (bmivalue < 29.9){
+            return " Over weight";
         }
         else {
-            BMIresult = "Obese";
+            return "Obese";
         }
 
-        calculation = "Result:\n\n" + bmi + "\n" + BMIresult;
-        resulttext.setText(calculation);
-
-
     }
+
 }
